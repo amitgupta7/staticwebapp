@@ -11,15 +11,15 @@ module.exports = async function (context, req) {
         body: responseMessage,
         cookies: [
             {
-                name: "cookie1",
-                value: "value1",
-                secure: true
+                name: "name",
+                value: name,
+                secure: true,
+                httpOnly: true
             },
             {
                 name: "cookie2",
                 value: "value2",
-                secure: true,
-                httpOnly: true
+                secure: true
             }
         ]
     };
