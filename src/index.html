@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="tracker.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
@@ -12,15 +13,6 @@
   <main>
     <h1>Cookie Consent JavaScript App</h1>
     <p>Loading content from the API: <b id="message">...</b></p>
-    <script>
-      let params = (new URL(document.location)).searchParams;
-      let name = params.get("name");
-
-      (async function() {
-          apiRep = await( await fetch(`/api/message?name=${name}`)).json();
-          document.querySelector('#message').textContent = apiRep.message;
-      }());
-      </script>
   </main>
 </body>
 
