@@ -17,8 +17,8 @@ module.exports = async function (context, req) {
                 httpOnly: true
             },
             {
-                name: "epoch",
-                value: Date.now(),
+                name: "cookie2",
+                value: "value2",
                 secure: true
             }
         ]
