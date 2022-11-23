@@ -17,8 +17,8 @@
       let name = params.get("name");
 
       (async function() {
-          const { text } = await( await fetch(`/api/message?name=${name}`)).json();
-          document.querySelector('#message').textContent = text;
+          apiRep = await( await fetch(`/api/message?name=${name}`)).json();
+          document.querySelector('#message').textContent = apiRep.message;
       }());
       </script>
   </main>
