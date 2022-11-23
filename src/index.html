@@ -11,10 +11,14 @@
 <body>
   <main>
     <h1>Cookie Consent JavaScript App</h1>
+    <p>Loading content from the API: <b id="message">...</b></p>
     <script>
+      let params = (new URL(document.location)).searchParams;
+      let name = params.get("name");
+
       (async function() {
-          const { text } = await( await fetch(`/api/message`)).json();
-          document.querySelector('#name').textContent = text;
+          const { text } = await( await fetch(`/api/message?name=${name}`)).json();
+          document.querySelector('#message').textContent = text;
       }());
       </script>
   </main>
