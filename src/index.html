@@ -11,6 +11,12 @@
 <body>
   <main>
     <h1>Cookie Consent JavaScript App</h1>
+    <script>
+      (async function() {
+          const { text } = await( await fetch(`/api/message`)).json();
+          document.querySelector('#name').textContent = text;
+      }());
+      </script>
   </main>
 </body>
 
