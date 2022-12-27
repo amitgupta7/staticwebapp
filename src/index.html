@@ -6,7 +6,21 @@
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-@@ -23,6 +24,7 @@
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NHMTCPH');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1QGG990DEL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1QGG990DEL');
+</script>
+  <script src="tracker.js"></script>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Cookie Consent JavaScript App</title>
@@ -20,8 +34,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <main>
     <h1>Cookie Consent App</h1>
-    <p>Loading content from the API: <b id="message">...</b></p>
-    <a href="https://brave-forest-08135f210.2.azurestaticapps.net/ashish.html">Ashish Test Page</a>
+    <p>Loading content from the API: <b id="message">...</b></p> 
   </main>
  <!-- After adding this script, call setConsentBannerParams({uuid: <unique id> }) to set unique ID for a customer. -->
 <script>
@@ -36,7 +49,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	parent_node.appendChild(s);
 	s.addEventListener('load', function() { window.initCmp(); });
 })()
-</script> 
+</script>
+<!-- You may style the button by overriding class "cmp-revoke-consent" -->
+<button class="cmp-revoke-consent">To Chnage Consent</button>	
 </body>
 
 </html>
