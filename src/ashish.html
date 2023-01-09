@@ -1,44 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1QGG990DEL"></script>
 <script>
-function setCookie(cname,cvalue,exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function checkCookie() {
-  let user = getCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } else {
-     user = prompt("Please enter your name:","");
-     if (user != "" && user != null) {
-       setCookie("username", user, 30);
-     }
-  }
-}
+  gtag('config', 'G-1QGG990DEL');
 </script>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7001577026398654465" allowfullscreen="" title="Embedded post" width="504" height="391" frameborder="0"></iframe>
+<a class="twitter-timeline" data-width="1200" data-height="400" href="https://twitter.com/SecuritiAI?ref_src=twsrc%5Etfw">Tweets by SecuritiAI</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
 </head>
 
-<body onload="checkCookie()"></body>
-
+<!-- <body onload="checkCookie()"></body> -->
+<body>
+  <main>
+    <h1> Twitter </h1>
+    <p> Check The Awesome Twitter Tweets  </p>
+    <a href="https://twitter.com/intent/tweet?button_hashtag=Privacy&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #Privacy</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Securiti is pleased to announce Marina Cavallo as Director of Global Events. She brings over 18 years of experience working at cyber security companies such as Forcepoint and Symantec. Connect with Marina to learn more about how Securiti is helping organizations.<a href="https://twitter.com/hashtag/Securiti?src=hash&amp;ref_src=twsrc%5Etfw">#Securiti</a> <a href="https://t.co/vUwHFDFZHc">pic.twitter.com/vUwHFDFZHc</a></p>&mdash; Securiti (@SecuritiAI) <a href="https://twitter.com/SecuritiAI/status/1587127402341273603?ref_src=twsrc%5Etfw">October 31, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+  </main>
+</body>
+  
 </html>

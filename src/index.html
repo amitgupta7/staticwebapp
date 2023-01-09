@@ -2,18 +2,57 @@
 <html lang="en">
 
 <head>
+<script type="text/javascript" src="https://cdn-prod.eu.securiti.ai/consent/auto_blocking/7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac/d0af334e-187d-40e1-b0ce-b467a5838be0.js"></script>
+<!-- Google Tag Manager -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NHMTCPH');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1QGG990DEL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1QGG990DEL');
+</script>
   <script src="tracker.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Cookie Consent JavaScript App</title>
+  <link rel='stylesheet' type='text/css' href='https://cdn-prod.eu.securiti.ai/consent/cookie-consent.css' />
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHMTCPH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <main>
     <h1>Cookie Consent App</h1>
-    <p>Loading content from the API: <b id="message">...</b></p>
+    <p>Loading content from the API: <b id="message">...</b></p> 
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7001577026398654465" allowfullscreen="" title="Embedded post" width="504" height="391" frameborder="0"></iframe>
   </main>
+ <!-- After adding this script, call setConsentBannerParams({uuid: <unique id> }) to set unique ID for a customer. -->
+<script>
+(function () {
+	var s = document.createElement('script');
+	s.src = 'https://cdn-prod.eu.securiti.ai/consent/cookie-consent-sdk.js';
+	s.setAttribute('data-tenant-uuid', '7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac');
+	s.setAttribute('data-domain-uuid', 'd0af334e-187d-40e1-b0ce-b467a5838be0');
+	s.setAttribute('data-backend-url', 'https://app.eu.securiti.ai');
+	s.defer = true;
+	var parent_node = document.head || document.body;
+	parent_node.appendChild(s);
+	s.addEventListener('load', function() { window.initCmp(); });
+})()
+</script>
+<!-- You may style the button by overriding class "cmp-revoke-consent" -->
+<button class="cmp-revoke-consent">To Chnage Consent</button>	
 </body>
 
 </html>
