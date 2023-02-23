@@ -42,7 +42,173 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Loading content from the API: <b id="message">...</b></p> 
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7001577026398654465" allowfullscreen="" title="Embedded post" width="1200" height="200" frameborder="0"></iframe>
 <iframe src="https://privacy-central.eu.securiti.ai/dsr-embed/8be7d131-5bc9-47f9-a8d6-e8c6016f72f2?value=option1" allowfullscreen="" title="Embedded post" width="1200" height="2000" frameborder="0"></iframe>
-  </main>
+<script>
+                    window.addEventListener('load', function() {
+                    var codeGenMetadata = {
+                        // todo: put form id here
+                        formPropertyId: 2,
+                        formSelector: '[DataElement*="DataElement"]',
+                        subjectIdentifiers: [{"name":"Email","selector":"Email","isPrimary":true}],
+                        consentIdentifiers: [{"type":"radio","name":"Recruitment","selector":"Recruitment","propertyId":2076,"consentValue":"Recruitment"}],
+                        consentTrigger: {
+                            action: 'submit',
+                            selector: ''
+                        }
+                    };
+
+                    var form, forms = document.querySelectorAll(codeGenMetadata.formSelector);
+                    if (forms.length > 1) {
+                        for (var i = 0; i < forms.length; i++) {
+                            if (forms[i].querySelector(codeGenMetadata.consentTrigger.selector)) {
+                                form = forms[i]
+                                break;
+                            }
+                        }
+                    } else {
+                        form = forms[0];
+                    }
+
+                    if (!form) {
+                        return;
+                    }
+
+                    var browserFingerPrint = ''
+                    
+                    if (typeof window !== 'undefined' && typeof define === 'function' && define.amd) {
+                        //If require js used in website render fingerprint js using require into DOM
+                        require(['https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.js'], function(Fingerprint2) {
+                            window.Fingerprint2 = Fingerprint2;
+                            onFingerprintLoad()
+                        });
+                    } else {
+                        var s = document.createElement('script');
+                        s.async = 1;
+                        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.js';
+                        var parent_node = document.head || document.body;
+                        parent_node.appendChild(s);
+                        s.addEventListener('load', onFingerprintLoad)
+                    }
+
+                    function onFingerprintLoad() {
+                        Fingerprint2.get(function(components) {
+                            browserFingerPrint = Fingerprint2.x64hash128(components.map(function(pair) {
+                                return pair.value
+                            }).join(), 31)
+                        })
+                    }
+                    var isConsentTaken = false
+                    var prepareConsentPayload = function(formEle) {
+                        if (!isConsentTaken) {
+                            isConsentTaken = true
+                            var payload = {
+                                form_info: {
+                                    subject_info: {}
+                                },
+                                consent_info: [],
+                                browser_finger_print: browserFingerPrint,
+                                policy_version: 1,
+                                form_property_id: codeGenMetadata.formPropertyId,
+                                uuid: '',
+                                uuids: {}
+                            }
+
+                            if (codeGenMetadata.consentIdentifiers.length === 1 && codeGenMetadata.consentIdentifiers[0].name === 'DefaultElementId') {
+                                payload.consent_info.push({
+                                    granted: true,
+                                    timestamp: parseInt(new Date().getTime() / 1000),
+                                    property_id: parseInt(codeGenMetadata.consentIdentifiers[0].propertyId)
+                                })
+                            } else {
+                                codeGenMetadata.consentIdentifiers.forEach(function(identifier) {
+                                    payload.consent_info.push({
+                                        granted: getGranted(identifier, formEle),
+                                        timestamp: parseInt(new Date().getTime() / 1000),
+                                        property_id: parseInt(identifier.propertyId)
+                                    })
+                                })
+                            }
+
+                            codeGenMetadata.subjectIdentifiers.forEach(function(identifier) {
+                                payload.form_info.subject_info[identifier.name] = formEle.querySelector(identifier.selector) && formEle.querySelector(identifier.selector).value || ''
+                                if (identifier.isPrimary) {
+                                    payload.uuid = payload.form_info.subject_info[identifier.name] || ''
+                                    payload.uuids[identifier.name] = payload.form_info.subject_info[identifier.name] || ''
+                                }
+                            })
+                            return payload
+                        }
+                    }
+
+                    function getGranted(identifier, formEle) {
+                        if (identifier.type == 'checkbox') {
+                            var checkboxElement = formEle.querySelector(identifier.selector);
+                            var parent = checkboxElement && checkboxElement.parentNode;
+                            if (parent && parent.tagName === 'LABEL' && parent.offsetHeight === 0) {
+                                parent = parent.parentNode
+                            }
+                            if (parent && parent.offsetHeight > 0) {
+                                return identifier.consentValue === 'checked' ? checkboxElement.checked : !checkboxElement.checked;
+                            }
+                            return false;
+                        } else {
+                            var radioElements = formEle.querySelectorAll(identifier.selector);
+                            var parent = radioElements[0] && radioElements[0].parentNode;
+                            if (parent && parent.tagName === 'LABEL' && parent.offsetHeight === 0) {
+                                parent = parent.parentNode
+                            }
+                            if (parent && parent.offsetHeight > 0) {
+                                return identifier.consentValue === Array.prototype.slice.call(radioElements).filter(function(r) { return r.checked })[0].value;
+                            }
+                            return false;
+                        }
+                    }
+
+                    function postConsentedItems(consentedItem) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', 'https://app.eu.securiti.ai/privaci/v1/consent/form/singleupload', false);
+                        xhr.setRequestHeader('Content-type', 'application/json');
+                        xhr.setRequestHeader('X-Auth-Token', 'b231175d-48a8-41a4-85c2-441d3617ae48');
+                        xhr.setRequestHeader('X-ORG-ID', '1');
+
+                        xhr.onload = function () {
+                            if (this.status >= 200 && this.status < 300) {
+                                var resp = JSON.parse(xhr.response)
+                                if (resp.status === 0) {
+                                    console.log('consent uploaded successfully');
+                                }
+                            } else {
+                                console.log('consent upload failed', this.status, xhr.statusText);
+                            }
+                            setTimeout(function () { isConsentTaken = false }, 0)
+                        };
+                        xhr.onerror = function () {
+                            console.log('consent upload failed', this.status, xhr.statusText);
+                            setTimeout(function () { isConsentTaken = false }, 0)
+                        };
+                        xhr.send(JSON.stringify(consentedItem));
+                    }
+
+                    var uploadConsent = function () {
+                        var payload = prepareConsentPayload(form)
+                        if(payload) {
+                            return postConsentedItems(payload);
+                        }
+                    }
+
+                    form.addEventListener('submit', function () {
+                        uploadConsent()
+                    })
+
+                    if (codeGenMetadata.consentTrigger.action === 'click') {
+                        var trigger = form.querySelector(codeGenMetadata.consentTrigger.selector)
+                            if (trigger) {
+                                trigger.addEventListener(codeGenMetadata.consentTrigger.action, function () {
+                                    uploadConsent()
+                                })
+                            }
+                        }
+                    })</script>  
+	</main>
  <!-- After adding this script, call setConsentBannerParams({uuid: <unique id> }) to set unique ID for a customer. -->
 <script>
 (function () {
