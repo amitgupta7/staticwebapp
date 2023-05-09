@@ -221,9 +221,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	s.defer = true;
 	var parent_node = document.head || document.body;
 	parent_node.appendChild(s);
-	s.addEventListener('load', function() { window.initCmp(); });
+	s.addEventListener('load', function() { window.initCmp();
+					       
+					       //new added code
+                setTimeout(() => {
+                    // create the anchor element
+                    const anchor = document.createElement('a');
+                    anchor.href = '#';
+                    anchor.innerText = 'X';
+                    anchor.classList = 'cc-dismiss-banner-custom';
+                    // add an event listener to the anchor
+                    anchor.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        const dismissButton = document.querySelector('.cc-dismiss');
+                        if (dismissButton) {
+                            dismissButton.click();
+                        }
+                    });
+                    // find the container element where you want to add the anchor
+                    const container = document.querySelector('.cc-window.cc-banner');
+                    // add the anchor to the container
+                    container.insertBefore(anchor, container.firstChild);
+                }, 1000);
+	        });
 })()
 </script>
+	<!-- new added code -->
+    <style>
+        .cc-banner {
+            overflow: visible !important;
+        }
+        .cc-dismiss-banner-custom {
+            position: absolute;
+            top: -10px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding-top: 0px;
+            font-size: 8px;
+            box-sizing: border-box;
+            display: block;
+        }
+    </style>
 <script
   src="https://js.hcaptcha.com/1/api.js?onload=yourFunction&render=explicit"
   async
