@@ -3,9 +3,6 @@
 
 <head>
 <script>
-function printGppEvent(data) {var gppstr = __gpp("getGPPData").gppString; console.log(gppstr, data);}
-__gpp("addEventListener", printGppEvent)
-
 window.addEventListener('message', function(ev) {
     console.log(ev.data.message, ev)
  })
@@ -59,6 +56,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	parent_node.appendChild(s);
 	s.addEventListener('load', function() { window.initCmp(); });
 })()
+</script>
+<script>
+function printGppEvent(data) {var gppstr = __gpp("getGPPData").gppString; console.log(gppstr, data);}
+__gpp("addEventListener", printGppEvent)
 </script>
 </body>
 
