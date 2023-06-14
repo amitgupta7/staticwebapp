@@ -3,15 +3,19 @@
 
 <head>
 <script>
+var gpp_attached = false;
 window.addEventListener('message', function(ev) {
-    console.log(ev.data.message, ev)
+   console.log(ev.data.message, ev)
+   if (!gpp_attached){
     if(ev.data.message == 'single_upload_consent_given'){
      if(__gpp){
       console.log('adding gpp event listener');	    
       function printGppEvent(data) {var gppstr = __gpp("getGPPData").gppString; console.log(gppstr, data);}
-      __gpp("addEventListener", printGppEvent)
+      __gpp("addEventListener", printGppEvent);
+	gpp_attached = true;     
      }
     }
+   }
  })
 </script>  
 <!-- Google Tag Manager -->
