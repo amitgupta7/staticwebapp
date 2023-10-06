@@ -2,23 +2,7 @@
 <html lang="en">
 
 <head>
-<script type="text/javascript" src="https://cdn-prod.eu.securiti.ai/consent/auto_blocking/7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac/d0af334e-187d-40e1-b0ce-b467a5838be0.js"></script>
-<script>
-var gpp_attached = false;
-window.addEventListener('message', function(ev) {
-   console.log(ev.data.message, ev)
-   if (!gpp_attached){
-    if(ev.data.message == 'single_upload_consent_given'){
-     if(__gpp){
-      console.log('adding gpp event listener');	    
-      function printGppEvent(data) {var gppstr = __gpp("getGPPData").gppString; console.log(gppstr, data);}
-      __gpp("addEventListener", printGppEvent);
-	gpp_attached = true;     
-     }
-    }
-   }
- })
-</script>  
+<script type="text/javascript" src="https://cdn-prod.eu.securiti.ai/consent/auto_blocking/7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac/d0af334e-187d-40e1-b0ce-b467a5838be0.js"></script> 
 <!-- Google Tag Manager -->
 <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
