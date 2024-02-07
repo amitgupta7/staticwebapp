@@ -2,8 +2,26 @@
 <html lang="en">
 
 <head>
-<script type="text/javascript" src="https://cdn-prod.eu.securiti.ai/consent/auto_blocking/7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac/d0af334e-187d-40e1-b0ce-b467a5838be0.js"></script> 
-<!-- Google Tag Manager -->
+<script type="text/javascript" src="https://cdn-prod.eu.securiti.ai/consent/auto_blocking/7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac/970a6f52-5968-4025-b061-b5a652d67084.js"></script>
+
+
+<!-- After adding this script, call setConsentBannerParams({uuid: <unique id> }) to set unique ID for a customer.  -->
+<script>
+(function () {
+	var s = document.createElement('script');
+	s.src = 'https://cdn-prod.eu.securiti.ai/consent/cookie-consent-sdk-loader.js';
+	s.setAttribute('data-tenant-uuid', '7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac');
+	s.setAttribute('data-domain-uuid', '970a6f52-5968-4025-b061-b5a652d67084');
+	s.setAttribute('data-backend-url', 'https://app.eu.securiti.ai');
+	s.setAttribute('data-skip-css', 'false');
+	s.defer = true;
+	var parent_node = document.head || document.body;
+	parent_node.appendChild(s);
+})()
+</script>
+	
+<button class="cmp-revoke-consent">To Chnage Consent</button>	
+	<!-- Google Tag Manager -->
 <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -39,21 +57,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="https://www.hcaptcha.com/privacy">Privacy Policy</a>
 <a href="https://www.hcaptcha.com/terms">Terms of Service</a>
 <a href="https://privacy-central.eu.securiti.ai/dsr-embed/cfd971cb-a132-4942-8479-c004559aee4c">DSR Form</a>
-<button class="cmp-revoke-consent">To Chnage Consent</button>	
-<!-- After adding this script, call setConsentBannerParams({uuid: <unique id> }) to set unique ID for a customer. -->
-<script>
-(function () {
-	var s = document.createElement('script');
-	s.src = 'https://cdn-prod.eu.securiti.ai/consent/cookie-consent-sdk.js';
-	s.setAttribute('data-tenant-uuid', '7b43eaa8-fa66-4a36-a2b8-dc115c2c49ac');
-	s.setAttribute('data-domain-uuid', 'd0af334e-187d-40e1-b0ce-b467a5838be0');
-	s.setAttribute('data-backend-url', 'https://app.eu.securiti.ai');
-	s.defer = true;
-	var parent_node = document.head || document.body;
-	parent_node.appendChild(s);
-	s.addEventListener('load', function() { window.initCmp(); });
-})()
-</script>
 
 <script src='https://cdn-prod.eu.securiti.ai/consent/form-consent-sdk.js'></script>
 <script>window.addEventListener('load',
