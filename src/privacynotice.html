@@ -14,14 +14,6 @@
 	s.setAttribute('data-backend-url', 'https://app.eu.securiti.ai');
 	s.setAttribute('data-skip-css', 'false');
 	s.defer = true;
-	s.addEventListener('load', function() {
-        	window.setConsentBannerParams(
-		{overrideBannerLanguage: {
-			'https://brave-forest-08135f210.2.azurestaticapps.net': 'fr',
-        		'https://brave-forest-08135f210.2.azurestaticapps.net/ashish.html': 'ar',
-                              }
-});
-    });
 	var parent_node = document.head || document.body;
 	parent_node.appendChild(s);
 })()
@@ -36,15 +28,7 @@
 
   gtag('config', 'G-1QGG990DEL');
 </script>
-<form id ="145" action="#" method="post">
-	<label for="Name">Enter Name - </label>
-	<input type="text" name="name" id="name"><br><br>
-	<label for="email">Enter Email - </label>
-	<input type="email" name="email" id="email"><br><br><br>
-	<input type="checkbox" id="Agree" name="Agree" value="Agree">
-    	<label for="Agree"> For us to legally enforce your details, users must first agree to our terms and conditions</label><br><br><br>
-   	<input type="button" id="submit" name="submit" value="SUBMIT" onclick="sendResponse()" /><br><br>
-</form>
+<iframe src="https://privacy-central.eu.securiti.ai/notice-embed/90bb0910-91ae-4586-9332-db44a46b94ca" style="border: none;width: 100%;height: 800px;"></iframe>
 </head>
 
 <!-- <body onload="checkCookie()"></body> -->
