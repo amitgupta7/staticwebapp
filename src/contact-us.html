@@ -94,6 +94,18 @@
 
     <input type="submit" value="Submit">
 </form>
+	<!-- UniversalConsent Code code -->
+                                <script src='https://cdn-prod.eu.securiti.ai/consent/form-consent-sdk.js'></script>
+                                <script>window.addEventListener('load',
+    FormConsentSDK.initialize({
+        codeGenMetadata:{"formPropertyId":"8","formSelector":"[method*=\"post\"]","subjectIdentifiers":[{"name":"Name:","selector":"[name = \"name\"]","isPrimary":false},{"name":"Email:","selector":"[name = \"email\"]","isPrimary":true}],"consentIdentifiers":[{"type":"NoUIElement","name":"DefaultElementId","selector":"DefaultElementSelector","propertyId":11837,"consentValue":"DefaultConsentValue"}],"consentTrigger":{"action":"click","selector":"[type=\"submit\"]"}},
+        url: 'https://app.eu.securiti.ai/privaci/v1/',
+        authToken:'b231175d-48a8-41a4-85c2-441d3617ae48',
+        orgId:'1',
+        onConsentSuccess: null,
+        onConsentFailure: null
+    })
+)</script>
 	<!-- You may style the button by overriding class "cmp-revoke-consent" -->
 <button class="cmp-revoke-consent">Revoke Consent</button>
 </body>
