@@ -15,6 +15,13 @@
 	s.setAttribute('data-backend-url', 'https://app.eu.securiti.ai');
 	s.setAttribute('data-skip-css', 'false');
 	s.defer = true;
+	s.addEventListener('load', function() {
+        	window.setConsentBannerParams(
+		{overrideBannerLanguage: {
+			'https://brave-forest-08135f210.2.azurestaticapps.net/arabic': 'ar',
+                              }
+});
+    });
 	var parent_node = document.head || document.body;
 	parent_node.appendChild(s);
 })()
@@ -50,11 +57,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <main>
-    <h1>Cookie Consent App Hello</h1>
-    <p>Loading content from the API: <b id="message">...</b></p> 
+    <h1>Cookie Consent Arabic Page Banner Override</h1>
+    <p>Check the below banner and preference center <b id="message">...</b></p> 
 </main>
-<a href="https://privacy-central.eu.securiti.ai/#/notices/a9f41b28-9e6b-48d2-a542-04745e2a27b3">Privacy Policy</a>
-<a href="https://privacy-central.eu.securiti.ai/dsr-embed/cfd971cb-a132-4942-8479-c004559aee4c">DSR Form</a>
 
 <script src='https://cdn-prod.eu.securiti.ai/consent/form-consent-sdk.js'></script>
 <script>window.addEventListener('load',
