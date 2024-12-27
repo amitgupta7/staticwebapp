@@ -45,6 +45,24 @@
     line-height: inherit; /* Keeps the original line height */
   }
 </style>
+<style>
+  .cmp-accordion.cmp-first-party-cookie h2 {
+    position: relative; /* Required for proper placement of pseudo-element */
+    color: transparent; /* Hides the original text */
+  }
+
+  .cmp-accordion.cmp-first-party-cookie h2::before {
+    content: "First-Party Cookie Providers"; /* The updated text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: inherit; /* Matches the existing text color */
+    font-size: inherit; /* Keeps the original font size */
+    line-height: inherit; /* Matches the original line height */
+    white-space: nowrap; /* Prevents text wrapping */
+  }
+</style>
+
 
 
 	<!-- Google Tag Manager -->
