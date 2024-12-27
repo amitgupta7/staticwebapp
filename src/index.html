@@ -62,9 +62,15 @@
     white-space: nowrap; /* Prevents text wrapping */
   }
 </style>
-
-
-
+<style>
+  .cmp-always-show {
+    white-space: nowrap;  /* Prevent text wrapping */
+    overflow: visible;    /* Allow the text to overflow if necessary */
+    text-overflow: unset; /* Remove ellipsis if it's being applied */
+    display: inline-block; /* Make the span respect its content size */
+    max-width: none;      /* Ensure the container doesn't restrict the width */
+  }
+</style>
 	<!-- Google Tag Manager -->
 <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
