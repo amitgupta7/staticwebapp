@@ -29,17 +29,19 @@
   #rejectAll-cookies::before {
     content: "Unselect Non-Essential"; /* New text */
     position: absolute;
-    top: 0;
-    left: 0;
-    color: #615fd2; /* Inherits text color of the button */
-    width: 100%;
-    height: 100%;
-    display: inline-flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the text */
+    color: #615fd2; /* Matches the button's text color */
+    white-space: nowrap; /* Prevents text from breaking into multiple lines */
+    width: 100%; /* Ensures it occupies the same area as the button */
     text-decoration: underline;
-    justify-content: center;
-    align-items: center;
+    text-align: center; /* Centers text horizontally */
+    font-size: inherit; /* Keeps the original font size */
+    line-height: inherit; /* Keeps the original line height */
   }
 </style>
+
 
 	<!-- Google Tag Manager -->
 <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
