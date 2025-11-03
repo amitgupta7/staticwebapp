@@ -18,57 +18,7 @@
 	parent_node.appendChild(s);
 })()
 </script>
-<style>
-  #rejectAll-cookies {
-    position: relative;
-    color: transparent; /* Hides original text */
-    padding: 1px 42px; /* Add padding to accommodate new text */
-    min-width: fit-content; /* Adjust button width to fit new text */
-    height: auto; /* Ensure height adjusts dynamically */
-    box-sizing: border-box; /* Include padding in button dimensions */
-  }
 
-  #rejectAll-cookies::before {
-    content: "Unselect Non-Essential"; /* New text */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centers the text */
-    color: #615fd2; /* Matches the button's text color */
-    white-space: nowrap; /* Prevents text from breaking into multiple lines */
-    width: 100%; /* Ensures it occupies the same area as the button */
-    text-decoration: underline;
-    text-align: center; /* Centers text horizontally */
-    font-size: inherit; /* Keeps the original font size */
-    line-height: inherit; /* Keeps the original line height */
-  }
-</style>
-<style>
-  .cmp-accordion.cmp-first-party-cookie h2 {
-    position: relative; /* Required for proper placement of pseudo-element */
-    color: transparent; /* Hides the original text */
-  }
-
-  .cmp-accordion.cmp-first-party-cookie h2::before {
-    content: "First-Party Cookie Providers"; /* The updated text */
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: inherit; /* Matches the existing text color */
-    font-size: inherit; /* Keeps the original font size */
-    line-height: inherit; /* Matches the original line height */
-    white-space: nowrap; /* Prevents text wrapping */
-  }
-</style>
-<style>
-  .cmp-always-show {
-    white-space: nowrap;  /* Prevent text wrapping */
-    overflow: visible;    /* Allow the text to overflow if necessary */
-    text-overflow: unset; /* Remove ellipsis if it's being applied */
-    display: inline-block; /* Make the span respect its content size */
-    max-width: none;      /* Ensure the container doesn't restrict the width */
-  }
-</style>
 	<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
