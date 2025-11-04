@@ -19,6 +19,38 @@
 })()
 </script>
 
+(function() {
+    // Function to apply the truncation logic
+    function truncateConsentBanner() {
+        // Use the correct selector for the banner's text container (e.g., .cc-message, .cc-message-container)
+        const messageContainer = document.querySelector('.cc-window .cc-message'); 
+        
+        if (messageContainer) {
+            // Get the full original text
+            const fullText = messageContainer.textContent.trim();
+            
+            // Define the short, visible text (adjust to your required length)
+            const shortText = "This website is maintained by Axis Max Life Insurance Limited. We use cookies to make our website....";
+            
+            // Define the element for the 'Read more' link (this should open the preference modal)
+            // You may need to inspect the 'Cookie Policy' link in the full text to get the correct function call.
+            const readMoreLink = '<a href="#" onclick="openPreferenceModalFunction(); return false;">Read more</a>'; 
+
+            // Update the content of the banner message
+            messageContainer.innerHTML = shortText + readMoreLink;
+        }
+    }
+
+    // Since the SDK loads asynchronously, we wait for the page content to be ready
+    window.addEventListener('load', function() {
+        // Add a slight delay to ensure the CMP script has finished rendering the default banner
+        setTimeout(truncateConsentBanner, 500); 
+    });
+
+    // NOTE: Replace 'openPreferenceModalFunction()' with the actual JavaScript function call 
+    //       that opens your full Cookie Preferences modal.
+})();
+
 	<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
