@@ -20,35 +20,53 @@
 </script>
 
 (function() {
-    // Function to apply the truncation logic
+    // 1. This function will perform the text replacement
     function truncateConsentBanner() {
-        // Use the correct selector for the banner's text container (e.g., .cc-message, .cc-message-container)
-        const messageContainer = document.querySelector('.cc-window .cc-message'); 
+        // This selector targets the main text area of the banner
+        const messageContainer = document.querySelector('.cc-window .cc-message');
         
+        // If the container is found, proceed
         if (messageContainer) {
-            // Get the full original text
-            const fullText = messageContainer.textContent.trim();
             
-            // Define the short, visible text (adjust to your required length)
+            // Define your short text
             const shortText = "This website is maintained by Axis Max Life Insurance Limited. We use cookies to make our website....";
             
-            // Define the element for the 'Read more' link (this should open the preference modal)
-            // You may need to inspect the 'Cookie Policy' link in the full text to get the correct function call.
-            const readMoreLink = '<a href="#" onclick="openPreferenceModalFunction(); return false;">Read more</a>'; 
+            // *** FIX 1: Using the CORRECT function from your HTML ***
+            // We use 'window.showConsentPreferencesPopup()' to open the modal
+            const readMoreLink = ' <a href="#" onclick="window.showConsentPreferencesPopup(); return false;" style="text-decoration: underline; cursor: pointer;">Read more</a>'; 
 
-            // Update the content of the banner message
+            // Update the banner's content
             messageContainer.innerHTML = shortText + readMoreLink;
+            
+            // Return true to signal success
+            return true;
         }
+        
+        // Return false if the container wasn't found yet
+        return false;
     }
 
-    // Since the SDK loads asynchronously, we wait for the page content to be ready
-    window.addEventListener('load', function() {
-        // Add a slight delay to ensure the CMP script has finished rendering the default banner
-        setTimeout(truncateConsentBanner, 500); 
-    });
+    // *** FIX 2: Poll for the element instead of using a weak timeout ***
+    // We will check for the banner every 100ms until we find it.
+    
+    let attempts = 0;
+    const maxAttempts = 50; // Stop trying after 5 seconds
 
-    // NOTE: Replace 'openPreferenceModalFunction()' with the actual JavaScript function call 
-    //       that opens your full Cookie Preferences modal.
+    const intervalId = setInterval(function() {
+        attempts++;
+        
+        // Try to run the function. If it returns true, it was successful.
+        if (truncateConsentBanner()) {
+            clearInterval(intervalId); // Stop polling
+        }
+        
+        // Give up after 5 seconds to prevent an infinite loop
+        if (attempts > maxAttempts) {
+            clearInterval(intervalId);
+            console.error("Securiti banner not found. Truncation script failed.");
+        }
+    }, 100); // Check every 100 milliseconds
+
 })();
 
 	<!-- Google Tag Manager -->
