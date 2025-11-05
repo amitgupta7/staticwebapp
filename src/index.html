@@ -19,38 +19,69 @@
 })()
 </script>
 
-<!-- Cookie Popup -->
-<div class="cookie-overlay" id="cookieOverlay">
-  <div class="cookie-popup" id="cookiePopup">
-    <h2>Axis Max Life and Cookies</h2>
-    <!-- Short text -->
-    <p class="cookie-text short">
-      This website is maintained by Axis Max Life Insurance Limited.
-      We use cookies to make our website...
-      <a href="#" class="read-more">Read more</a>
-    </p>
-    <!-- Full text -->
-    <p class="cookie-text full">
-      This website is maintained by Axis Max Life Insurance Limited.
-      We use cookies to make our website work smoothly and give you a better experience.
-      Some cookies are essential for the site to function, while others help us improve your
-      experience and personalize content. By continuing to use our website, you are giving
-      consent to the storing and accessing of Cookies on your device in accordance with the
-      terms of our <a href="#">Cookie Policy</a>.
-    </p>
-    <button class="close-btn" onclick="closeCookie()">Close</button>
-  </div>
-</div>
-<script>
-  document.querySelector('.read-more').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector('.cookie-text.short').style.display = 'none';
-    document.querySelector('.cookie-text.full').style.display = 'block';
-  });
-  function closeCookie() {
-    document.getElementById('cookieOverlay').style.display = 'none';
-  }
-</script>
+#cookieConsentBanner,
+.securiti-banner,
+[data-securiti-banner] {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+/* Popup box styling */
+.securiti-banner-container,
+[data-securiti-banner-container] {
+  background: #fff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+  width: 90% !important;
+  max-width: 420px !important;
+  padding: 24px !important;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif !important;
+  text-align: left !important;
+}
+/* Headline */
+.securiti-banner-title,
+[data-securiti-banner-title] {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #222 !important;
+  margin-bottom: 12px !important;
+}
+/* Text body */
+.securiti-banner-body,
+[data-securiti-banner-body] {
+  font-size: 0.95rem !important;
+  color: #555 !important;
+  line-height: 1.5 !important;
+  margin-bottom: 20px !important;
+}
+/* Links */
+.securiti-banner-body a {
+  color: #B00020 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+.securiti-banner-body a:hover {
+  text-decoration: underline !important;
+}
+/* Buttons */
+.securiti-accept-btn,
+.securiti-close-btn,
+[data-securiti-close-btn] {
+  background: #B00020 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 10px 24px !important;
+  font-size: 0.95rem !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+}
+.securiti-accept-btn:hover,
+.securiti-close-btn:hover {
+  background: #900018 !important;
+}
 
 	<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
