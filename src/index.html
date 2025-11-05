@@ -19,55 +19,38 @@
 })()
 </script>
 
-(function() {
-    // 1. This function will perform the text replacement
-    function truncateConsentBanner() {
-        // This selector targets the main text area of the banner
-        const messageContainer = document.querySelector('.cc-window .cc-message');
-        
-        // If the container is found, proceed
-        if (messageContainer) {
-            
-            // Define your short text
-            const shortText = "This website is maintained by Axis Max Life Insurance Limited. We use cookies to make our website....";
-            
-            // *** FIX 1: Using the CORRECT function from your HTML ***
-            // We use 'window.showConsentPreferencesPopup()' to open the modal
-            const readMoreLink = ' <a href="#" onclick="window.showConsentPreferencesPopup(); return false;" style="text-decoration: underline; cursor: pointer;">Read more</a>'; 
-
-            // Update the banner's content
-            messageContainer.innerHTML = shortText + readMoreLink;
-            
-            // Return true to signal success
-            return true;
-        }
-        
-        // Return false if the container wasn't found yet
-        return false;
-    }
-
-    // *** FIX 2: Poll for the element instead of using a weak timeout ***
-    // We will check for the banner every 100ms until we find it.
-    
-    let attempts = 0;
-    const maxAttempts = 50; // Stop trying after 5 seconds
-
-    const intervalId = setInterval(function() {
-        attempts++;
-        
-        // Try to run the function. If it returns true, it was successful.
-        if (truncateConsentBanner()) {
-            clearInterval(intervalId); // Stop polling
-        }
-        
-        // Give up after 5 seconds to prevent an infinite loop
-        if (attempts > maxAttempts) {
-            clearInterval(intervalId);
-            console.error("Securiti banner not found. Truncation script failed.");
-        }
-    }, 100); // Check every 100 milliseconds
-
-})();
+<!-- Cookie Popup -->
+<div class="cookie-overlay" id="cookieOverlay">
+  <div class="cookie-popup" id="cookiePopup">
+    <h2>Axis Max Life and Cookies</h2>
+    <!-- Short text -->
+    <p class="cookie-text short">
+      This website is maintained by Axis Max Life Insurance Limited.
+      We use cookies to make our website...
+      <a href="#" class="read-more">Read more</a>
+    </p>
+    <!-- Full text -->
+    <p class="cookie-text full">
+      This website is maintained by Axis Max Life Insurance Limited.
+      We use cookies to make our website work smoothly and give you a better experience.
+      Some cookies are essential for the site to function, while others help us improve your
+      experience and personalize content. By continuing to use our website, you are giving
+      consent to the storing and accessing of Cookies on your device in accordance with the
+      terms of our <a href="#">Cookie Policy</a>.
+    </p>
+    <button class="close-btn" onclick="closeCookie()">Close</button>
+  </div>
+</div>
+<script>
+  document.querySelector('.read-more').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('.cookie-text.short').style.display = 'none';
+    document.querySelector('.cookie-text.full').style.display = 'block';
+  });
+  function closeCookie() {
+    document.getElementById('cookieOverlay').style.display = 'none';
+  }
+</script>
 
 	<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
