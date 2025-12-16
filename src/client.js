@@ -6,7 +6,7 @@ const CREDENTIALS = {
     tenantId: "app-eu~b231175d-48a8-41a4-85c2-441d3617ae48",
     preferenceCenterId: "53727338-7b6c-4ad8-8b28-3d307ccc3bb2",
     primaryIdentifier: '',
-    locationCode: 'US',
+    locationCode: 'EU',
     languageCode: 'en',
     implicitFlow: true,
     implicitRecordConsents: false,
