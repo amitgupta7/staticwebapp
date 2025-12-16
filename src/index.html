@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preference Center - Iframe integration example</title>
+    <link rel="stylesheet" href="client.css">
+</head>
+<body>
+    
+    <section>
+        <form id="iframeIntegrationExampleForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input name="firstName" id="firstName" placeholder="Enter FirstName" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input name="lastName" id="lastName" placeholder="Enter LastName" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="Enter email" />
+            </div>
+            <!-- Load iframe -->
+            <iframe id="preferenceIframe" height="200" src="./iframe/preference-center.html" ></iframe>
+        </form>
+    </section>
+    <script src="./client.js"></script>
+
+</body>
+</html>
