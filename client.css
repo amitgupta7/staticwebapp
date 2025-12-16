@@ -1,0 +1,66 @@
+:root {
+    --form-bg: #f9f9f9;
+    --form-border: #ddd;
+    --label-color: #747474;
+    --input-bg: #f3f3f3;
+    --input-color: #212121;
+    --input-border-color: #1ca8dd;
+    --btn-bg: #1ca8dd;
+    --btn-text-color: #fff;
+    --btn-hover-bg: #49b9e4;
+}
+
+/**============ client style-guide ========== */
+*,*::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+section {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+#preferenceIframe {
+  width: 100%;
+  border-width: 0;
+  min-height: 500px;
+}
+
+form {
+    margin: 0 auto;
+}
+label {
+    margin-bottom: 0.25rem;
+    display: inline-block;
+    user-select: none;
+    letter-spacing: 1px;
+    color: var(--label-color);
+    font-size: .9rem;
+}
+input,
+select {
+    border: 0;
+    outline: none;
+    background: var(--input-bg);
+    color: var(--input-color);
+    padding: .75rem 1rem;
+    border-left: 3px solid var(--input-border-color);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 100%;
+    letter-spacing: 1px;
+}
+input:focus {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
+}
+.form-group {
+    margin-bottom: .75rem;
+}
+#jobNotificationForm {
+    border: 1px solid var(--form-border);
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+    padding: 1rem 2rem;
+    background: var(--form-bg);
+}
