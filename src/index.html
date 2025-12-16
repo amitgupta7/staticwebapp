@@ -43,6 +43,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="styles.css">
   <title>Cookie Consent JavaScript App</title>
 <link rel='stylesheet' type='text/css' href='https://cdn-prod.eu.securiti.ai/consent/cookie-consent.css' />
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preference Center - Iframe integration example</title>
+    <link rel="stylesheet" href="client.css">
+
 </head>
 
 <body>
@@ -84,17 +90,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="https://privacy-central.eu.securiti.ai/#/notices/a9f41b28-9e6b-48d2-a542-04745e2a27b3">Privacy Policy</a>
 <a href="https://privacy-central.eu.securiti.ai/dsr-embed/cfd971cb-a132-4942-8479-c004559aee4c">DSR Form</a>
 
-<script src='https://cdn-prod.eu.securiti.ai/consent/form-consent-sdk.js'></script>
-<script>window.addEventListener('load',
-    FormConsentSDK.initialize({
-        codeGenMetadata:{"formPropertyId":"5","formSelector":"[Direct Marketing Form*=\"dmform\"]","subjectIdentifiers":[{"name":"Email Field Name","selector":"Email Field Selector","isPrimary":true}],"consentIdentifiers":[{"type":"checkbox","name":"Consent Selection Field Name","selector":"Consent Selection Field Selector","propertyId":11589,"consentValue":"checked"}],"consentTrigger":{"action":"click","selector":"SubmitTest"}},
-        url: 'https://app.eu.securiti.ai/privaci/v1/',
-        authToken:'b231175d-48a8-41a4-85c2-441d3617ae48',
-        orgId:'1',
-        onConsentSuccess: null,
-        onConsentFailure: null
-    })
-)</script>
+<section>
+        <form id="iframeIntegrationExampleForm"> 
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input name="firstName" id="firstName" placeholder="Enter FirstName" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input name="lastName" id="lastName" placeholder="Enter LastName" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="Enter email" />
+            </div>
+
+ <!-- The iframe is added here by linking up with the source iframe file -->
+
+            <iframe id="preferenceIframe" height="200" src="preference-center.html" ></iframe>
+        </form>
+    </section>
+    <script src="client.js"></script>
 </body>
 
 <footer class="main-footer" tabindex="-1">	
