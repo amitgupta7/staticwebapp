@@ -21,8 +21,12 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email" placeholder="Enter email" />
+                <input type="email" name="email" id="email" placeholder="Enter email" required />
+                <small id="emailHint" class="field-hint" hidden>Please enter a valid email address.</small>
             </div>
+
+            <!-- Shown after consents are recorded (CONSENTS_RECORDED) or on failure -->
+            <div id="pcStatus" class="pc-status" hidden></div>
 
             <!-- Securiti Universal Preference Center iframe.
                  Credentials (tenantId / preferenceCenterId) live in client.js and are
