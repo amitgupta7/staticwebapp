@@ -12,7 +12,7 @@ const CREDENTIALS = {
     // Any ISO 3166-1 alpha-2 code works for recording (verified EU/DE/GB/US).
     // With Location Intelligence disabled the default preference center is
     // rendered regardless of this value.
-    locationCode: 'IN',
+    locationCode: 'default',
     languageCode: 'en',
     implicitFlow: true,
     implicitRecordConsents: false,
