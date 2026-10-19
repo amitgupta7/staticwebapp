@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Preference Center - Iframe integration</title>
+    <link rel="stylesheet" href="client.css">
 </head>
-
 <body>
-<iframe
-  src="https://privacy-central.eu.securiti.ai/#/form-access-preference/b231175d-48a8-41a4-85c2-441d3617ae48/9a1e5a87-7c24-41d4-a03c-7f9f5ce3fe02"
-  width="100%"
-  height="900px"
-  style="border:none; overflow:auto;"
-  title="Data Subject Request Form">
-  
-  <p>Your browser does not support iframes. 
-  <a href="https://privacy-central.eu.securiti.ai/#/form-access-preference/b231175d-48a8-41a4-85c2-441d3617ae48/9a1e5a87-7c24-41d4-a03c-7f9f5ce3fe02">
-  Click here to access the form.
-  </a>
-  </p>
-  
-</iframe>
+
+    <section>
+        <form id="iframeIntegrationExampleForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input name="firstName" id="firstName" placeholder="Enter FirstName" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input name="lastName" id="lastName" placeholder="Enter LastName" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="Enter email" />
+            </div>
+
+            <!-- Securiti Universal Preference Center iframe.
+                 Credentials (tenantId / preferenceCenterId) live in client.js and are
+                 passed to the iframe via the INIT_PREFERENCE_CENTER postMessage event. -->
+            <iframe id="preferenceIframe" height="200" src="./iframe/preference-center.html"></iframe>
+        </form>
+    </section>
+
+    <script src="./client.js"></script>
 
 </body>
-  
 </html>
